@@ -8,25 +8,40 @@ float promedio = 0;
 for (int i = 0; i < ARRAY_LENGHT; i++)
 {
     Console.Clear();
+    Console.WriteLine("---------------------------------");
     Console.WriteLine($"Ingresa {ARRAY_LENGHT} valores");
-    Console.Write($"valor {i}: ");
-    numeroIngresados[i] = int.Parse(Console.ReadLine());
-    suma += numeroIngresados[i];
+    Console.WriteLine("---------------------------------");
+    Console.Write($"valor {i+1}: ");
+    numeroIngresados[i] = int.Parse(Console.ReadLine());       
+}
+
+Console.Clear();
+Console.WriteLine("---------------------------------");
+Console.WriteLine("Números ingresados");
+Console.WriteLine("---------------------------------");
+
+// Inicializo las variables
+menor = numeroIngresados[0];
+mayor = numeroIngresados[0];
+
+for (int i = 0; i < ARRAY_LENGHT; i++)
+{
+    suma = suma + numeroIngresados[i];
     if (mayor < numeroIngresados[i]){
         mayor = numeroIngresados[i];
     }
     if (menor > numeroIngresados[i]){
         menor = numeroIngresados[i];
-    }
-    promedio = suma / ARRAY_LENGHT;
+    } 
+    Console.WriteLine($"número[{i+1}] = {numeroIngresados[i]}");
 }
 
-Console.WriteLine("Números ingresados:");
-for (int i = 0; i < ARRAY_LENGHT; i++)
-{
-    Console.WriteLine($"número[{i}] = {numeroIngresados[i]}");
-}
+//Calculo el promedio
+promedio = (float)suma / (float)ARRAY_LENGHT;
+
+Console.WriteLine("---------------------------------");
 Console.WriteLine($"Suma total     : {suma}");
 Console.WriteLine($"El mayor es    : {mayor}");
 Console.WriteLine($"El menor es    : {menor}");
 Console.WriteLine($"El promedio es : {promedio}");
+Console.WriteLine("---------------------------------");
