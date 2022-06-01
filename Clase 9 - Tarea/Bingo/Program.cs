@@ -1,5 +1,6 @@
 ﻿const int FILAS = 3;
 const int COLUMNAS = 9;
+const int NUMEROS_CARTON = 15;
 int[,] values = new int[FILAS, COLUMNAS];
 
 Console.Clear();
@@ -9,42 +10,47 @@ Console.WriteLine("----------------------------------------------");
 
 //Generar los valores del bingo
 var random = new Random();
-for (int col = 0; col < COLUMNAS; col++)
+var contadorNumeros = 0;
+
+while (contadorNumeros != NUMEROS_CARTON)
 {
-    var filaA = random.Next(0, 3);
-    var filaB = random.Next(0, 3);
-    if (filaB < filaA)
+    values = new int[FILAS, COLUMNAS];
+    contadorNumeros = 0;
+    for (int col = 0; col < COLUMNAS; col++)
     {
-        var aux = filaA;
-        filaA = filaB;
-        filaB = aux;
-    }
+        var filaA = random.Next(0, 3);
+        var filaB = random.Next(0, 3);
+        var salir = false;
 
-    int aleatorioA = random.Next((col == 0 ? 1 : col * 10), (col + 1) * 10);
-    int aleatorioB = 0;
+        int aleatorioA = random.Next((col == 0 ? 1 : col * 10), (col + 1) * 10);
+        int aleatorioB = 0;
 
-    var salir = false;
-    while (!salir)
-    {
-        aleatorioB = random.Next((col == 0 ? 1 : col * 10), (col + 1) * 10);
-        if (aleatorioA != aleatorioB)
+        salir = false;
+        while (!salir)
         {
-            if (aleatorioA > aleatorioB)
+            aleatorioB = random.Next((col == 0 ? 1 : col * 10), (col + 1) * 10);
+            if (aleatorioA != aleatorioB)
             {
-                var aux = aleatorioA;
-                aleatorioA = aleatorioB;
-                aleatorioB = aux;
+                if (aleatorioA > aleatorioB)
+                {
+                    var aux = aleatorioA;
+                    aleatorioA = aleatorioB;
+                    aleatorioB = aux;
+                }
+                salir = true;
             }
-            salir = true;
+        }
+
+        values[filaA, col] = aleatorioA;
+        contadorNumeros++;
+        if ((filaB != filaA) && (contadorNumeros < 15))
+        {
+            contadorNumeros++;
+            values[filaB, col] = aleatorioB;
         }
     }
-
-    values[filaA, col] = aleatorioA;
-    if (filaB != filaA)
-    {
-        values[filaB, col] = aleatorioB;
-    }
 }
+
 
 //Graficamos el bingo generado
 Console.WriteLine();
