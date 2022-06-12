@@ -48,8 +48,6 @@ Console.WriteLine("----------------------------------------------");
 var billeteraCombinada = billeteraA.Combinar(billeteraB);
 
 billeteraCombinada.MostrarBilletera();
-billeteraA.VaciarBilletera();
-billeteraB.VaciarBilletera();
 Console.WriteLine($"Total: {billeteraCombinada.Total()}");
 Console.WriteLine();
 Console.WriteLine("----------------------------------------------");

@@ -37,6 +37,8 @@ namespace Billeteras
                 BilleteDe500 = BilleteDe500 + billetera.BilleteDe500,
                 BilleteDe1000 = BilleteDe1000 + billetera.BilleteDe1000
             };
+            VaciarBilletera();
+            billetera.VaciarBilletera();
             return billeteraNueva;
         }
 
