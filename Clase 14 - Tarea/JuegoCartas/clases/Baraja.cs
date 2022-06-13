@@ -31,16 +31,17 @@ namespace JuegoCartas.clases
                 Cartas[posicion] = carta;
             }
         }
-        public Carta? SiguienteCarta()
+        public void SiguienteCarta()
         {
             if (Cartas.Count > 0)
             {                
                 var carta = Cartas[0];
+                Console.WriteLine($"Carta: {carta.Numero} de {carta.Palo}");
                 Monton.Add(carta);
-                Cartas.RemoveAt(0);
-                return carta;
-            }
-            return null;
+                Cartas.RemoveAt(0);                
+            }else {
+                Console.WriteLine("No hay cartas");
+            }        
         }
         public int CartasDisponibles()
         {
@@ -58,6 +59,7 @@ namespace JuegoCartas.clases
                 {
                     SiguienteCarta();
                 }
+                Console.WriteLine("\nTotal cartas entregadas: " + cantidad);
             }
         }
         public void CartasMonton()
@@ -66,11 +68,13 @@ namespace JuegoCartas.clases
             foreach (Carta carta in Monton)
             {
                 contador++;
-                Console.WriteLine(carta.Numero + " de " + carta.Palo);
+                Console.WriteLine(carta.Numero.ToString().PadLeft(2, ' ') + " de " + carta.Palo);
             }
             if (contador == 0)
             {
                 Console.WriteLine("No se saco ninguna carta");
+            }else{
+                Console.WriteLine("\nTotal cartas: " + contador);
             }
         }
         public void MostrarBaraja()
@@ -79,11 +83,13 @@ namespace JuegoCartas.clases
             foreach (Carta carta in Cartas)
             {
                 contador++;
-                Console.WriteLine(carta.Numero + " de " + carta.Palo);
+                Console.WriteLine(carta.Numero.ToString().PadLeft(2, ' ') + " de " + carta.Palo);
             }
             if (contador == 0)
             {
                 Console.WriteLine("Se sacarón todas las cartas");
+            }else{
+                Console.WriteLine("\nTotal cartas: " + contador);
             }
         }
     }
