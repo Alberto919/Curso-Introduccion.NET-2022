@@ -11,10 +11,10 @@ while (true)
     Console.WriteLine("---------------------------------");
     Console.WriteLine();
     Console.WriteLine("1. Barajar");
-    Console.WriteLine("2. Siguiente carta");
-    Console.WriteLine("3. Cartas disponibles");
+    Console.WriteLine("2. Mostrar siguiente carta");
+    Console.WriteLine("3. Mostrar cartas disponibles");
     Console.WriteLine("4. Dar cartas");
-    Console.WriteLine("5. Cartas del monton");
+    Console.WriteLine("5. Mostrar cartas del monton");
     Console.WriteLine("6. Mostrar baraja");
     Console.WriteLine("7. Salir");
     Console.WriteLine();
