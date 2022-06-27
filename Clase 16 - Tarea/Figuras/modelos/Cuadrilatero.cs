@@ -2,7 +2,8 @@ namespace Figuras.modelos
 {
     public abstract class Cuadrilatero
     {
-        private Coordenada[] _coordenadas = new Coordenada[4];
+        public static readonly int NUMERO_VERTICES = 4;
+        private Coordenada[] _coordenadas;
 
         public Coordenada vertice_A
         {
@@ -29,6 +30,8 @@ namespace Figuras.modelos
         }
 
         public abstract double area();
+
+        public abstract bool isValid();
 
     }
 }

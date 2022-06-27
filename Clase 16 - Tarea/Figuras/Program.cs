@@ -1,14 +1,13 @@
 ﻿using Figuras.modelos;
 
-const int VERTICES = 4;
-Coordenada[] vertices = new Coordenada[VERTICES];
+Coordenada[] vertices = new Coordenada[Cuadrilatero.NUMERO_VERTICES];
 Cuadrilatero figura;
 
 
 void loadCoordenadas()
 {
     Console.WriteLine();
-    for (int vertice = 0; vertice < VERTICES; vertice++)
+    for (int vertice = 0; vertice < Cuadrilatero.NUMERO_VERTICES; vertice++)
     {
         var coordenada = new Coordenada();
         Console.Write($"Ingrese la coordenada x del vertice {vertice + 1}: ");
@@ -25,7 +24,7 @@ void mostrarCoordenadas(string figura)
     Console.WriteLine();
     Console.WriteLine($"Coordenadas de los vertices del {figura}:");
      Console.WriteLine();
-    for (int vertice = 0; vertice < VERTICES; vertice++)
+    for (int vertice = 0; vertice < Cuadrilatero.NUMERO_VERTICES; vertice++)
     {
         Console.WriteLine($"Vertice {vertice + 1}: ({vertices[vertice].x}, {vertices[vertice].y})");
     }
@@ -59,14 +58,30 @@ while (true)
         case 2:
             loadCoordenadas();
             figura = new Rectangulo(vertices);
-            mostrarCoordenadas("rectangulo");
-            Console.WriteLine($"El area del rectangulo es: {figura.area()}");
+            if(figura.isValid())
+            {
+                mostrarCoordenadas("rectangulo");
+                Console.WriteLine($"El area del rectangulo es: {figura.area()}");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Las coordenadas ingresadas no se corresponden a un rectangulo");
+            }
             break;
         case 3:
             loadCoordenadas();
             figura = new Cuadrado(vertices);
-            mostrarCoordenadas("cuadrado");
-            Console.WriteLine($"El area del cuadrado es: {figura.area()}");
+            if(figura.isValid())
+            {
+                mostrarCoordenadas("cuadrado");
+                Console.WriteLine($"El area del cuadrado es: {figura.area()}");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Las coordenadas ingresadas no se corresponden a un cuadrado");
+            }
             break;
     }
 
