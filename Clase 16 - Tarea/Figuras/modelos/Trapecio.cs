@@ -15,7 +15,7 @@ namespace Figuras.modelos
             */
             double sumaA = (vertice_A.x*vertice_B.y)+(vertice_B.x*vertice_C.y)+(vertice_C.x*vertice_D.y)+(vertice_D.x*vertice_A.y);
             double sumaB = (vertice_A.x*vertice_D.y)+(vertice_D.x*vertice_C.y)+(vertice_C.x*vertice_B.y)+(vertice_B.x*vertice_A.y);
-            return (sumaB - sumaA) / 2;
+            return Math.Abs((sumaB - sumaA) / 2);
         }
     }
 }

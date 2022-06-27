@@ -22,7 +22,6 @@ namespace Figuras.modelos
         public Coordenada vertice_D
         {
             get { return _coordenadas[3]; }
-            set { _coordenadas[3] = value; }
         }
         public Cuadrilatero(Coordenada[] coordenadas)
         {
